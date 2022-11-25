@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sec_2_junit_review/sec_2_junit_review.iml" filepath="$PROJECT_DIR$/sec_2_junit_review/sec_2_junit_review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring_boot_unit_testing_cd_forked.iml" filepath="$PROJECT_DIR$/.idea/spring_boot_unit_testing_cd_forked.iml" />
+    </modules>
+  </component>
+</project>

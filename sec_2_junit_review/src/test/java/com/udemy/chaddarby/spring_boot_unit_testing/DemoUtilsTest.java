@@ -8,6 +8,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 // @DisplayNameGeneration(value = DisplayNameGenerator.Simple.class)
+// @TestMethodOrder(MethodOrderer.MethodName.class)
+// @TestMethodOrder(MethodOrderer.DisplayName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DemoUtilsTest {
 	DemoUtils demoUtils;
 
@@ -35,6 +38,7 @@ public class DemoUtilsTest {
 
 	@Test
 	@DisplayName("test equals & not equals")
+	@Order(1)
 	void testEqualsAndNotEquals() {
 		System.out.println("running testEqualsAndNotEquals");
 
@@ -54,6 +58,7 @@ public class DemoUtilsTest {
 
 	@Test
 	@DisplayName("test null & not null")
+	@Order(0)
 	void testNullAndNotNull() {
 		System.out.println("running testNullAndNotNull");
 
@@ -92,6 +97,7 @@ public class DemoUtilsTest {
 
 	@Test
 	@DisplayName("test true or false")
+	@Order(30)
 	void testTrueFalse() {
 		int val1 = 10;
 		int val2 = 5;
@@ -126,6 +132,7 @@ public class DemoUtilsTest {
 
 	@Test
 	@DisplayName("test if lines match each other")
+	@Order(50)
 	void testLines() {
 		List<String> wordsList = List.of("arbeit", "macht", "frei");
 
