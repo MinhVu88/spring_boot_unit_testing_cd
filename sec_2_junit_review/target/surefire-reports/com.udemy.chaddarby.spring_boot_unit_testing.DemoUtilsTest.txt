@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.udemy.chaddarby.spring_boot_unit_testing.DemoUtilsTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.116 s - in com.udemy.chaddarby.spring_boot_unit_testing.DemoUtilsTest

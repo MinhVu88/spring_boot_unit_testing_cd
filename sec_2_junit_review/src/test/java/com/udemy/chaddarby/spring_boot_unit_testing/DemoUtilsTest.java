@@ -57,6 +57,21 @@ public class DemoUtilsTest {
 	}
 
 	@Test
+	@DisplayName("test multiplication")
+	void testMultiplication() {
+		System.out.println("running testMultiplication");
+
+		// GIVEN
+		int expectedResult = 12;
+
+		// WHEN
+		int actualResult = demoUtils.multiply(3, 4);
+
+		// THEN
+		assertEquals(expectedResult, actualResult, "3 * 4 = " + actualResult);
+	}
+
+	@Test
 	@DisplayName("test null & not null")
 	@Order(0)
 	void testNullAndNotNull() {
