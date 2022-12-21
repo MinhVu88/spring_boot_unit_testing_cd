@@ -55,7 +55,7 @@ public class CollegeStudent implements Student {
 	}
 
 	@Override
-	public String studentInfo() {
+	public String getStudentInfo() {
 		return getFullName() + " " + getEmail();
 	}
 
