@@ -1,6 +1,8 @@
 package com.udemy.chaddarby.spring_boot_unit_testing;
 
+import com.udemy.chaddarby.spring_boot_unit_testing.dao.ApplicationDao;
 import com.udemy.chaddarby.spring_boot_unit_testing.models.CollegeStudent;
+import com.udemy.chaddarby.spring_boot_unit_testing.service.ApplicationService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,5 +18,15 @@ public class GradeBookApp {
 	@Scope(value = "prototype")
 	CollegeStudent getCollegeStudent() {
 		return new CollegeStudent();
+	}
+
+	@Bean(name = "applicationExample")
+	ApplicationService getApplicationService() {
+		return new ApplicationService();
+	}
+
+	@Bean(name = "applicationDao")
+	ApplicationDao getApplicationDao() {
+		return new ApplicationDao();
 	}
 }
