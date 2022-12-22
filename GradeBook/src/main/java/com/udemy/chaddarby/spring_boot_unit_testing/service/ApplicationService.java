@@ -9,12 +9,12 @@ public class ApplicationService {
 	@Autowired
 	private ApplicationDao applicationDao;
 
-	public double addGradeResultsForSingleClass(List<Double> numbers) {
-		return applicationDao.addGradeResultsForSingleClass(numbers);
+	public double totalGradesPerClass(List<Double> numbers) {
+		return applicationDao.totalGradesPerClass(numbers);
 	}
 
-	public double findGradePointAverage (List<Double> grades ) {
-		return applicationDao.findGradePointAverage(grades);
+	public double calculateAverageGrade (List<Double> grades ) {
+		return applicationDao.calculateAverageGrade(grades);
 	}
 
 	public Object checkNull(Object obj) {

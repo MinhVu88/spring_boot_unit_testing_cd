@@ -27,11 +27,11 @@ public class Grade {
 	}
 
 	public double calculateAverageGrade(List<Double> grades ) {
-		int lengthOfGrades = grades.size();
+		int numberOfGrades = grades.size();
 
 		double sum = totalGradesPerClass(grades);
 
-		double result = sum / lengthOfGrades;
+		double result = sum / numberOfGrades;
 
 		// add a round function
 		BigDecimal resultRound = BigDecimal.valueOf(result);
