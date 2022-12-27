@@ -15,8 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -69,13 +68,14 @@ public class MockAnnotationTest {
 	void testCalculateAverageGrade() {
 		double expectedResult = 88.31;
 
-		double actualResult = applicationService.calculateAverageGrade(collegeStudent.getGrade().getMathGrades());
-
 		double averageGrade = applicationDao.calculateAverageGrade(grade.getMathGrades());
 
 		when(averageGrade).thenReturn(expectedResult);
 
-		assertEquals(expectedResult, actualResult);
+		assertEquals(
+			expectedResult,
+			applicationService.calculateAverageGrade(collegeStudent.getGrade().getMathGrades())
+		);
 	}
 
 	@Test
@@ -89,5 +89,39 @@ public class MockAnnotationTest {
 			applicationService.checkNull(collegeStudent.getGrade().getMathGrades()),
 			"Object shouldn't be null"
 		);
+	}
+
+	@Test
+	@DisplayName("test throwing runtime exception once for checkNull()")
+	void testThrowingARuntimeErrorForCheckNull() {
+		CollegeStudent nullStudent = (CollegeStudent) context.getBean("collegeStudent");
+
+		doThrow(new RuntimeException()).when(applicationDao).checkNull(nullStudent);
+
+		assertThrows(RuntimeException.class, () -> applicationService.checkNull(nullStudent));
+
+		verify(applicationDao, times(1)).checkNull(nullStudent);
+	}
+
+	@Test
+	@DisplayName("test multiple stubbing for checkNull()")
+	void testStubbingConsecutiveCallsForCheckNull() {
+		String msg = "Don't throw any exception for subsequent method calls after the 1st";
+
+		CollegeStudent nullStudent = (CollegeStudent) context.getBean("collegeStudent");
+
+		// when checkNull is 1st invoked, throw an exception,
+		// subsequent calls to this method throw NO exceptions,
+		// instead a message regarding this circumstance is returned.
+		when(applicationDao.checkNull(nullStudent)).thenThrow(new RuntimeException()).thenReturn(msg);
+
+		// the 1st call of checkNull
+		assertThrows(RuntimeException.class, () -> applicationService.checkNull(nullStudent));
+
+		// the 2nd call of checkNull
+		assertEquals(msg, applicationService.checkNull(nullStudent));
+
+		// verify that checkNull() has been called twice
+		verify(applicationDao, times(2)).checkNull(nullStudent);
 	}
 }
