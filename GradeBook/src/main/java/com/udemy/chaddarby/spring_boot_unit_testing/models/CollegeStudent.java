@@ -1,6 +1,7 @@
 package com.udemy.chaddarby.spring_boot_unit_testing.models;
 
 public class CollegeStudent implements Student {
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -12,6 +13,14 @@ public class CollegeStudent implements Student {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -44,6 +53,10 @@ public class CollegeStudent implements Student {
 
 	public void setGrade(Grade grade) {
 		this.grade = grade;
+	}
+
+	private String getCollegeStudentCredentials() {
+		return "Id: " + getId() + " | Name: " + getFirstName() + " " + getLastName();
 	}
 
 	@Override
