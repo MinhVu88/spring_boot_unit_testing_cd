@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="GradeBook2:war">
+    <output-path>$PROJECT_DIR$/GradeBook2/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>GradeBook2</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="GradeBook2-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="GradeBook2:war exploded" />
+    </root>
+  </artifact>
+</component>

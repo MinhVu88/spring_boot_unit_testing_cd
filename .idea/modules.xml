@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GradeBook1/GradeBook1.iml" filepath="$PROJECT_DIR$/GradeBook1/GradeBook1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GradeBook2/GradeBook2.iml" filepath="$PROJECT_DIR$/GradeBook2/GradeBook2.iml" />
       <module fileurl="file://$PROJECT_DIR$/sec_2_junit_review/sec_2_junit_review.iml" filepath="$PROJECT_DIR$/sec_2_junit_review/sec_2_junit_review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sec_3_tdd/sec_3_tdd.iml" filepath="$PROJECT_DIR$/sec_3_tdd/sec_3_tdd.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring_boot_unit_testing_cd_forked.iml" filepath="$PROJECT_DIR$/.idea/spring_boot_unit_testing_cd_forked.iml" />
     </modules>
   </component>

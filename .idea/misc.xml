@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/GradeBook2" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/sec_2_junit_review/pom.xml" />
+        <option value="$PROJECT_DIR$/sec_3_tdd/pom.xml" />
+        <option value="$PROJECT_DIR$/GradeBook1/pom.xml" />
+        <option value="$PROJECT_DIR$/GradeBook2/pom.xml" />
       </list>
     </option>
   </component>

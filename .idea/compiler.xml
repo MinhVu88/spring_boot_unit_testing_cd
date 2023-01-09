@@ -6,11 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="GradeBook1" />
         <module name="sec_2_junit_review" />
+        <module name="GradeBook2" />
+        <module name="sec_3_tdd" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="GradeBook1" target="17" />
+      <module name="GradeBook2" target="17" />
       <module name="sec_2_junit_review" target="17" />
+      <module name="sec_3_tdd" target="17" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="GradeBook1" options="-parameters" />
+      <module name="GradeBook2" options="-parameters" />
+    </option>
   </component>
 </project>
