@@ -7,19 +7,19 @@ import java.util.List;
 
 @Component
 public class GradeBook {
-	private List<CollegeStudentGradeBook> students = new ArrayList<>();
+	private List<CollegeStudentGradeBook> collegeStudents = new ArrayList<>();
 
 	public GradeBook() {}
 
-	public GradeBook(List<CollegeStudentGradeBook> students) {
-		this.students = students;
+	public GradeBook(List<CollegeStudentGradeBook> collegeStudents) {
+		this.collegeStudents = collegeStudents;
 	}
 
-	public List<CollegeStudentGradeBook> getStudents() {
-		return students;
+	public List<CollegeStudentGradeBook> getCollegeStudents() {
+		return collegeStudents;
 	}
 
-	public void setStudents(List<CollegeStudentGradeBook> students) {
-		this.students = students;
+	public void setCollegeStudents(List<CollegeStudentGradeBook> collegeStudents) {
+		this.collegeStudents = collegeStudents;
 	}
 }

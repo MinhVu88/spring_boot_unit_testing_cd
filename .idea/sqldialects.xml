@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/GradeBook2/src/test/java/com/udemy/chaddarby/spring_boot_unit_testing/service/StudentGradeServiceTest.java" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="H2" />
+  </component>
+</project>

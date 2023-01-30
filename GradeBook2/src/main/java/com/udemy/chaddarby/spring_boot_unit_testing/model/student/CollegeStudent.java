@@ -7,12 +7,13 @@ import javax.persistence.*;
 public class CollegeStudent implements Student {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
 
-	@Column
+	@Column(name = "first_name", nullable = false)
 	private String firstName;
 
-	@Column
+	@Column(name = "last_name", nullable = false)
 	private String lastName;
 
 	@Column(name="email")
