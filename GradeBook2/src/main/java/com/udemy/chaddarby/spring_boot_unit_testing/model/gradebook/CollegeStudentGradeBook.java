@@ -1,12 +1,12 @@
+// CollegeStudentGradeBook contains student credentials & a list of grades for each student.
 package com.udemy.chaddarby.spring_boot_unit_testing.model.gradebook;
 
 import com.udemy.chaddarby.spring_boot_unit_testing.model.student.CollegeStudent;
-import com.udemy.chaddarby.spring_boot_unit_testing.model.grade.StudentGrades;
 
 public class CollegeStudentGradeBook extends CollegeStudent {
 	private int id;
 
-	private StudentGrades studentGrades;
+	private SubjectGradeBook subjectGradeBook;
 
 	public CollegeStudentGradeBook(
 		String firstName,
@@ -21,10 +21,10 @@ public class CollegeStudentGradeBook extends CollegeStudent {
 		String firstName,
 		String lastName,
 		String email,
-		StudentGrades studentGrades
+		SubjectGradeBook subjectGradeBook
 	) {
 		super(firstName, lastName, email);
-		this.studentGrades = studentGrades;
+		this.subjectGradeBook = subjectGradeBook;
 		this.id = id;
 	}
 
@@ -38,11 +38,11 @@ public class CollegeStudentGradeBook extends CollegeStudent {
 		this.id = id;
 	}
 
-	public StudentGrades getStudentGrades() {
-		return studentGrades;
+	public SubjectGradeBook getStudentGrades() {
+		return subjectGradeBook;
 	}
 
-	public void setStudentGrades(StudentGrades studentGrades) {
-		this.studentGrades = studentGrades;
+	public void setStudentGrades(SubjectGradeBook subjectGradeBook) {
+		this.subjectGradeBook = subjectGradeBook;
 	}
 }

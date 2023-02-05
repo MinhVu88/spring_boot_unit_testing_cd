@@ -1,5 +1,7 @@
-package com.udemy.chaddarby.spring_boot_unit_testing.model.grade;
+// SubjectGradeBook (the grade list) contains grades for each subject
+package com.udemy.chaddarby.spring_boot_unit_testing.model.gradebook;
 
+import com.udemy.chaddarby.spring_boot_unit_testing.model.grade.Grade;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -7,34 +9,34 @@ import java.math.RoundingMode;
 import java.util.List;
 
 @Component
-public class StudentGrades {
-
+public class SubjectGradeBook {
 	private List<Grade> mathGradeResults;
 
 	private List<Grade> scienceGradeResults;
 
 	private List<Grade> historyGradeResults;
 
-	public StudentGrades() {}
+	public SubjectGradeBook() {}
 
-	public double addGradeResultsForSingleClass(List<Grade> grades) {
+	public double totalGradesPerClass(List<Grade> grades) {
 		double result = 0;
-		for (Grade i : grades) {
-			result += i.getGrade();
+
+		for(Grade grade : grades) {
+			result += grade.getGrade();
 		}
+
 		return result;
 	}
 
-	public double findGradePointAverage (List<Grade> grades ) {
-		int lengthOfGrades = grades.size();
-		double sum = addGradeResultsForSingleClass(grades);
-		double result = sum / lengthOfGrades;
+	public double calculateAverageGrade(List<Grade> grades) {
+		int numberOfGrades = grades.size();
+		double sum = totalGradesPerClass(grades);
+		double result = sum / numberOfGrades;
 
 		// add a round function
 		BigDecimal resultRound = BigDecimal.valueOf(result);
 		resultRound = resultRound.setScale(2, RoundingMode.HALF_UP);
 		return resultRound.doubleValue();
-
 	}
 
 	public List<Grade> getMathGradeResults() {
@@ -63,8 +65,8 @@ public class StudentGrades {
 
 	@Override
 	public String toString() {
-		return "StudentGrades{" +
-		"mathGradeResults=" + mathGradeResults +
-		'}';
+		return "math grade results: " + mathGradeResults +
+					 "science grade results: " + scienceGradeResults +
+					 "history grade results: " + historyGradeResults;
 	}
 }
