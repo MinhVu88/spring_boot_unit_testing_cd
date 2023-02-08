@@ -18,7 +18,7 @@ import org.springframework.context.ApplicationContext;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
+@SpringBootTest(classes = GradeBookApp1.class)
 public class MockAnnotationTest {
 	@Autowired
 	private ApplicationContext context;

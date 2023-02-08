@@ -7,13 +7,12 @@ import javax.persistence.*;
 public class CollegeStudent implements Student {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
 
-	@Column(name = "first_name", nullable = false)
+	@Column
 	private String firstName;
 
-	@Column(name = "last_name", nullable = false)
+	@Column
 	private String lastName;
 
 	@Column(name="email")
@@ -63,20 +62,18 @@ public class CollegeStudent implements Student {
 		this.email = email;
 	}
 
-	public String getStudentName() {
-		return "student's 1st name: " + getFirstName() +
-					 " | last name: " + getLastName();
+	public String getFullName() {
+		return getFirstName() + " " + getLastName();
 	}
 
-	public String getStudentNameAndEmail() {
-		return "student's full name: " + getStudentName() +
-					 " | email: " + getEmail();
+	public String getStudentInfo() {
+		return getFullName() + " " + getEmail();
 	}
 
 	@Override
 	public String toString() {
-		return "student id: " + id +
-					 " | first name: " + firstName +
+		return "college student id: " + id +
+					 " | 1st name: " + firstName +
 					 " | last name: " + lastName +
 					 " | email: " + email;
 	}

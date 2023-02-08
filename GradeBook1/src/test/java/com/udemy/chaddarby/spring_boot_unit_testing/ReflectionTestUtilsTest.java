@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@SpringBootTest(classes = GradeBookApp1.class)
 public class ReflectionTestUtilsTest {
 	@Autowired
 	private CollegeStudent collegeStudent;

@@ -26,35 +26,20 @@ public class Grade {
 		return result;
 	}
 
-	public double calculateAverageGrade(List<Double> grades ) {
-		int numberOfGrades = grades.size();
-
+	public double calculateAverageGrade(List<Double> grades) {
 		double sum = totalGradesPerClass(grades);
-
-		double result = sum / numberOfGrades;
-
-		// add a round function
+		double result = sum / grades.size();
 		BigDecimal resultRound = BigDecimal.valueOf(result);
-
 		resultRound = resultRound.setScale(2, RoundingMode.HALF_UP);
-
 		return resultRound.doubleValue();
 	}
 
 	public Boolean isGreaterThan(double grade1, double grade2) {
-		if(grade1 > grade2) {
-			return true;
-		}
-
-		return false;
+		return grade1 > grade2;
 	}
 
 	public Object checkNull(Object obj) {
-		if (obj != null) {
-			return obj;
-		}
-
-		return null;
+		return obj;
 	}
 
 	public List<Double> getMathGrades() {

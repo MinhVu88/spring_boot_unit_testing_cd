@@ -8,14 +8,14 @@ public class ApplicationDao {
 	public double totalGradesPerClass(List<Double> grades) {
 		double result = 0;
 
-		for (double i : grades) {
+		for(double i : grades) {
 			result += i;
 		}
 
 		return result;
 	}
 
-	public double calculateAverageGrade(List<Double> grades ) {
+	public double calculateAverageGrade(List<Double> grades) {
 		int numberOfGrades = grades.size();
 		double sum = totalGradesPerClass(grades);
 		double result = sum / numberOfGrades;
@@ -27,7 +27,7 @@ public class ApplicationDao {
 	}
 
 	public Object checkNull(Object obj) {
-		if ( obj != null ) {
+		if(obj != null) {
 			return obj;
 		}
 
