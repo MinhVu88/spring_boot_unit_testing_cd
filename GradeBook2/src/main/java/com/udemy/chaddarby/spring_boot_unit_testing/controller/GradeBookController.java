@@ -1,15 +1,15 @@
 package com.udemy.chaddarby.spring_boot_unit_testing.controller;
 
-import com.udemy.chaddarby.spring_boot_unit_testing.model.gradebook.GradeBook;
+import com.udemy.chaddarby.spring_boot_unit_testing.model.gradebook.Gradebook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class GradeBookController {
-	private final GradeBook gradebook;
+	private final Gradebook gradebook;
 
-	public GradeBookController(GradeBook gradebook) {
+	public GradeBookController(Gradebook gradebook) {
 		this.gradebook = gradebook;
 	}
 
@@ -19,7 +19,7 @@ public class GradeBookController {
 	}
 
 	@GetMapping("/student-info/{id}")
-	public String getStudent(@PathVariable int id, Model m) {
+	public String studentInformation(@PathVariable int id, Model model) {
 		return "studentInfo";
-	}
+		}
 }

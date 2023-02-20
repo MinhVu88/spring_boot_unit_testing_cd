@@ -1,25 +1,28 @@
 package com.udemy.chaddarby.spring_boot_unit_testing.model.gradebook;
 
+import com.udemy.chaddarby.spring_boot_unit_testing.model.gradebook.CollegeStudentGradeBook;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class GradeBook {
-	private List<CollegeStudentGradeBook> collegeStudents = new ArrayList<>();
+public class Gradebook {
 
-	public GradeBook() {}
+    private List<CollegeStudentGradeBook> students = new ArrayList<>();
 
-	public GradeBook(List<CollegeStudentGradeBook> collegeStudents) {
-		this.collegeStudents = collegeStudents;
-	}
+    public Gradebook() {
 
-	public List<CollegeStudentGradeBook> getCollegeStudents() {
-		return collegeStudents;
-	}
+    }
+    public Gradebook(List<CollegeStudentGradeBook> students) {
+        this.students = students;
+    }
 
-	public void setCollegeStudents(List<CollegeStudentGradeBook> collegeStudents) {
-		this.collegeStudents = collegeStudents;
-	}
+    public List<CollegeStudentGradeBook> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<CollegeStudentGradeBook> students) {
+        this.students = students;
+    }
 }

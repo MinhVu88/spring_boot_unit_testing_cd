@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest(classes = GradeBookApp1.class)
 public class GradeTest {
 	private static int counter = 0;
 

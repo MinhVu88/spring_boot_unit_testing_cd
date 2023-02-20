@@ -1,5 +1,7 @@
 package com.udemy.chaddarby.spring_boot_unit_testing.model.grade;
 
+import com.udemy.chaddarby.spring_boot_unit_testing.model.grade.Grade;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,26 +9,26 @@ import javax.persistence.*;
 public class MathGrade implements Grade {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int gradeId;
+	private int id;
+
 	@Column(name="student_id")
 	private int studentId;
+
 	@Column(name="grade")
 	private double grade;
 
-	public MathGrade() {
-
-	}
+	public MathGrade() {}
 
 	public MathGrade(double grade) {
 		this.grade = grade;
 	}
 
-	public int getGradeId() {
-		return gradeId;
+	public int getId() {
+		return id;
 	}
 
-	public void setGradeId(int gradeId) {
-		this.gradeId = gradeId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getStudentId() {
