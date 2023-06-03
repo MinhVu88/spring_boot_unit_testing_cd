@@ -11,11 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @SpringBootTest(classes = GradeBookApp2.class)
-@TestPropertySource("/application.properties")
+@TestPropertySource("/application-test.properties")
 public class StudentServiceTest {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -29,7 +34,7 @@ public class StudentServiceTest {
 	@BeforeEach
 	void setUp() {
 		jdbcTemplate.execute(
-		"insert into student(id, email, first_name, last_name)" +
+			"insert into student(id, email, first_name, last_name)" +
 			"values (1, 'keenan@tool.com', 'Maynard', 'Keenan')"
 		);
 	}
@@ -40,13 +45,13 @@ public class StudentServiceTest {
 	}
 
 	@Test
-	@DisplayName("test creating a new student in db")
-	void testCreatingStudent() {
-		String firstName = "Maynard";
-		String lastName = "Keenan";
-		String email = "keenan@tool.com";
+	@DisplayName("test createStudent()")
+	void testCreateStudent() {
+		String firstName = "Nikola";
+		String lastName = "Tesla";
+		String email = "tesla@genius.com";
 
-		studentService.createStudent(firstName, lastName, email);
+		studentService.createNewStudent(firstName, lastName, email);
 
 		CollegeStudent collegeStudent = studentDao.findByEmail(email);
 
@@ -58,9 +63,43 @@ public class StudentServiceTest {
 	}
 
 	@Test
-	@DisplayName("test if a student record is null")
-	void testIfStudentIsPresent() {
-		assertTrue(studentService.isStudentNull(1));
-		assertFalse(studentService.isStudentNull(0));
+	@DisplayName("test isStudentExistent()")
+	void testIsStudentExistent() {
+		assertTrue(studentService.isStudentExistent(1));
+
+		assertFalse(studentService.isStudentExistent(0));
+	}
+
+	@Test
+	@Sql("/db/insertData.sql")
+	@DisplayName("test getStudents()")
+	void testGetStudents() {
+		int numberOfCurrentCollegeStudents = 5;
+
+		Iterable<CollegeStudent> collegeStudents = studentService.getStudents();
+
+		List<CollegeStudent> studentList = new ArrayList<>();
+
+		for(CollegeStudent collegeStudent : collegeStudents) {
+			studentList.add(collegeStudent);
+		}
+
+		assertEquals(numberOfCurrentCollegeStudents, studentList.size());
+	}
+
+	@Test
+	@DisplayName("test deleteStudent()")
+	void testDeleteStudent() {
+		int studentId = 1;
+
+		Optional<CollegeStudent> collegeStudent = studentDao.findById(studentId);
+
+		assertTrue(collegeStudent.isPresent(), "collegeStudent exists");
+
+		studentService.deleteStudent(studentId);
+
+		Optional<CollegeStudent> removedCollegeStudent = studentDao.findById(studentId);
+
+		assertFalse(removedCollegeStudent.isPresent(), "collegeStudent removed");
 	}
 }

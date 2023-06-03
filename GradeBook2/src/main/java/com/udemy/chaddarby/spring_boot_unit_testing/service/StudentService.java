@@ -10,24 +10,34 @@ import java.util.Optional;
 @Service
 @Transactional
 public class StudentService {
-	private final StudentDao studentDao;
+	private StudentDao studentDao;
 
 	public StudentService(StudentDao studentDao) {
 		this.studentDao = studentDao;
 	}
 
-	public void createStudent(
+	public void createNewStudent(
 		String firstName,
 		String lastName,
 		String email
 	) {
 		CollegeStudent student = new CollegeStudent(firstName, lastName, email);
-		student.setId(1);
-		studentDao.save(student);
+		student.setId(0);
+		this.studentDao.save(student);
 	}
 
-	public boolean isStudentNull(int id) {
-		Optional<CollegeStudent> student = studentDao.findById(id);
+	public boolean isStudentExistent(int studentId) {
+		Optional<CollegeStudent> student = this.studentDao.findById(studentId);
 		return student.isPresent();
+	}
+
+	public Iterable<CollegeStudent> getStudents() {
+		return this.studentDao.findAll();
+	}
+
+	public void deleteStudent(int studentId) {
+		if(isStudentExistent(studentId)) {
+			this.studentDao.deleteById(studentId);
+		}
 	}
 }
