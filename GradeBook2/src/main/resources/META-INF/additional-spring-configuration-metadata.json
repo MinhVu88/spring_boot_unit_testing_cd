@@ -1,0 +1,67 @@
+{"properties": [
+  {
+    "name": "sql.script.create.student",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.create.student'"
+  },
+  {
+    "name": "values",
+    "type": "java.lang.String",
+    "description": "A description for 'values'"
+  },
+  {
+    "name": "sql.script.create.math.grade",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.create.math.grade'"
+  },
+  {
+    "name": "sql.script.create.science.grade",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.create.science.grade'"
+  },
+  {
+    "name": "sql.script.create.history.grade",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.create.history.grade'"
+  },
+  {
+    "name": "sql.script.delete.student",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.delete.student'"
+  },
+  {
+    "name": "sql.script.delete.math.grade",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.delete.math.grade'"
+  },
+  {
+    "name": "sql.script.delete.science.grade",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.delete.science.grade'"
+  },
+  {
+    "name": "sql.script.delete.history.grade",
+    "type": "java.lang.String",
+    "description": "A description for 'sql.script.delete.history.grade'"
+  },
+  {
+    "name": "info.school.name",
+    "type": "java.lang.String",
+    "description": "A description for 'info.school.name'"
+  },
+  {
+    "name": "info.app.name",
+    "type": "java.lang.String",
+    "description": "A description for 'info.app.name'"
+  },
+  {
+    "name": "info.app.description",
+    "type": "java.lang.String",
+    "description": "A description for 'info.app.description'"
+  },
+  {
+    "name": "info.app.version",
+    "type": "java.lang.String",
+    "description": "A description for 'info.app.version'"
+  }
+]}

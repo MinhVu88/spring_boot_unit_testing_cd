@@ -23,6 +23,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -37,7 +38,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.servlet.ModelAndView;
 
 @SpringBootTest(classes = GradeBookApp2.class)
-@TestPropertySource("/application-test.properties")
+@TestPropertySource("/application.properties")
 @AutoConfigureMockMvc
 public class GradeBookControllerTest {
 	// any method annotated with @BeforeAll must be static, 
@@ -56,6 +57,30 @@ public class GradeBookControllerTest {
 	@Mock
 	private StudentService studentServiceMock;
 
+	@Value("${sql.script.create.student}")
+	private String newStudent;
+
+	@Value("${sql.script.delete.student}")
+	private String removedStudent;
+
+	@Value("${sql.script.create.math.grade}")
+	private String newMathGrade;
+
+	@Value("${sql.script.delete.math.grade}")
+	private String removedMathGrade;
+
+	@Value("${sql.script.create.science.grade}")
+	private String newScienceGrade;
+
+	@Value("${sql.script.delete.science.grade}")
+	private String removedScienceGrade;
+
+	@Value("${sql.script.create.history.grade}")
+	private String newHistoryGrade;
+
+	@Value("${sql.script.delete.history.grade}")
+	private String removedHistoryGrade;
+
 	@BeforeAll
 	static void setUpBeforeAll() {
 		mockHttpServletRequest = new MockHttpServletRequest();
@@ -67,15 +92,26 @@ public class GradeBookControllerTest {
 
 	@BeforeEach
 	void setUpBeforeEach() {
+		/*
 		this.jdbcTemplate.execute(
 			"insert into student(id, email, first_name, last_name)" +
 			"values (1, 'keenan@tool.com', 'Maynard', 'Keenan')"
 		);
+		*/
+
+		this.jdbcTemplate.execute(newStudent);
+		this.jdbcTemplate.execute(newMathGrade);
+		this.jdbcTemplate.execute(newScienceGrade);
+		this.jdbcTemplate.execute(newHistoryGrade);
 	}
 
 	@AfterEach
 	void cleanUpAfterEach() {
-		this.jdbcTemplate.execute("delete from student");
+		// this.jdbcTemplate.execute("delete from student");
+		this.jdbcTemplate.execute(removedStudent);
+		this.jdbcTemplate.execute(removedMathGrade);
+		this.jdbcTemplate.execute(removedScienceGrade);
+		this.jdbcTemplate.execute(removedHistoryGrade);
 	}
 
 	@Test
